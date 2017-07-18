@@ -13,7 +13,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="./style.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
@@ -37,23 +37,23 @@
                         <div class="col-md-6">
                             <div class="form-group" name="inputrows">
                                 <label for="rows">Rows:</label>
-                                <input data-id="row" type="text" placeholder="please provide no of rows" class="form-control row" oninputchange="updateData(event)" class="form-control" id="rows" />
+                                <input data-id="row" value="0" type="number" max="30" min="0" placeholder="please provide no of rows" class="form-control row" oninput="maxlengthCheck(event,this)"  class="fomaxlength"   id="rows" />
                             </div>
                             <div class="form-group" name="inputcolumns">
                                 <label>Columns:</label>
 
-                                <input data-id="column" type="text" placeholder="please provide no of rows" class="form-control column" oninputchange="updateData(event)" class="form-control" id="columns" />
+                                <input data-id="column" value="0"  type="number" max="30" min="0" placeholder="please provide no of rows" class="form-control column" oninput="maxlengthCheck(event,this)"  class="form-control" id="columns" />
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group" name="range">
                                 <label>Rows:</label>
-                                <input type="range" data-id="row" class="form-control row" min="0" value="0" max="50" step="1" onchange="updateData(event)" id="rangeFrows" />
+                                <input type="range" data-id="row" class="form-control row" min="0" value="0" max="30" step="1" onchange="updateData(event)" id="rangeFrows" />
                             </div>
                             <div class="form-group" name="inputcolumns">
                                 <label>Columns:</label>
-                                <input type="range" class="form-control column" data-id="column" value="0" min="0" max="50" step="1" onchange="updateData(event)" id="rangeFcolumns" />
+                                <input type="range" class="form-control column" data-id="column" value="0" min="0" max="30" step="1" onchange="updateData(event)" id="rangeFcolumns" />
                             </div>
                         </div>
 
@@ -72,7 +72,7 @@
             </div>
         </div>
     </main>
-    <script src="../js/main.js"></script>
+    <script src="./main.js"></script>
 </body>
 
 </html>

@@ -4,7 +4,9 @@ function updateData(e) {
     if (element.className.includes("row")) {
         var rows = document.querySelectorAll(".row");
         [].forEach.call(rows, function(row) {
+            if(updatedValue)
             row.value = updatedValue;
+
         })
     } else if (element.className.includes("column")) {
         var columns = document.querySelectorAll(".column");
@@ -12,14 +14,15 @@ function updateData(e) {
             coulmn.value = updatedValue;
         })
     }
-    var columns = document.getElementById("rangeFcolumns");
+    var columns = document.getElementById("columns");
     columns = parseInt(columns.value);
-    var rows = document.getElementById("rangeFrows");
+    var rows = document.getElementById("rows");
     rows = parseInt(rows.value);
+    var elementTable = document.getElementById("table");
     if (rows > 0 && columns > 0) {
         var table = createTable(rows, columns);
-        document.getElementById("table").innerHTML = "";
-        document.getElementById("table").appendChild(table);
+        elementTable.innerHTML = "";
+        elementTable.appendChild(table);    
     } else {
         document.getElementById("table").innerHTML = "";
     }
@@ -29,7 +32,7 @@ function updateData(e) {
 function createTable(rows, columns) {
     var el = document.createElement("div");
     el.className = "div-table";
-    for (i = 0; i < rows; i++) {
+    for (var i = 0; i < rows; i++) {
         var row = createRows(rows, columns);
         el.appendChild(row);
     }
@@ -41,7 +44,7 @@ function createTable(rows, columns) {
 function createRows(rows, columns) {
     var el = document.createElement("div");
     el.className = "div-table-row";
-    for (i = 0; i < columns; i++) {
+    for (var i = 0; i < columns; i++) {
         var col = createColumn();
         el.appendChild(col);
     }
@@ -56,4 +59,12 @@ function createColumn() {
 
     return el;
 
+}
+function maxlengthCheck(event,obj){
+    if (obj.value && obj.value > 30) {
+        obj.value = 30;
+    }
+
+    updateData(event);
+    return false;
 }

@@ -45,7 +45,6 @@ header {
 
 .div-table {
     display: table;
-    height: 400px;
     background-color: #eee;
     border: 1px solid #3c7653;
     border-spacing: 5px;
@@ -54,15 +53,20 @@ header {
 .div-table-row {
     display: table-row;
     width: auto;
-    clear: both;
     border: 1px solid black;
 }
 
 .div-cell {
-    width: 190px;
+   width: 30px; */
     padding: 15px;
+    height:30px;
     border: 1px solid silver;
     background-color: #3c7653;
-    height: 20px;
-    display: inline-block;
+    display: table-cell;
+}
+#table{
+        margin-left: 35px;
+}
+.column{
+margin-left:-17px;
 }
